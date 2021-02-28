@@ -2,9 +2,18 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import Country from "./components/Country/Country";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const [countries, setCountries] = useState([]);
+
+  const [cart, setCart] = useState([]);
+
+  const handleAddCountry = (country) => {
+    const newCart = [...cart, country];
+    // console.log(newCart);
+    setCart(newCart);
+  };
 
   useEffect(() => {
     fetch("https://restcountries.eu/rest/v2/all")
@@ -14,8 +23,15 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <h2>Country loaded: {countries.length}</h2>
+      <h3>Country added: {cart.length}</h3>
+      <Cart cart={cart}></Cart>
       {countries.map((country) => (
-        <Country country={country} key={country.alpha3Code}></Country>
+        <Country
+          country={country}
+          handleAddCountry={handleAddCountry}
+          key={country.alpha3Code}
+        ></Country>
       ))}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

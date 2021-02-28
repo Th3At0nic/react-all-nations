@@ -7,6 +7,10 @@
   text-align: center;
 }
 .flag-img {
-  /* width: 100px; */
   height: 150px;
+}
+
+.country-detail button:hover {
+  cursor: pointer;
+  background-color: gold;
 }
