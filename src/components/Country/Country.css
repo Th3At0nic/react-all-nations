@@ -1,0 +1,12 @@
+.country-detail {
+  border: 1px solid rgb(87, 83, 83);
+  width: 100%;
+  background-color: bisque;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+.flag-img {
+  /* width: 100px; */
+  height: 150px;
+}
